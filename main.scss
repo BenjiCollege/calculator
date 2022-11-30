@@ -1,0 +1,149 @@
+$textColor: #64757A;
+$boxColor: #B37AF9;
+$calcColor: #892FF7;
+$funcColor: #6E26C7;
+$pageColor: #421778;
+$whiteColor: #FFFFFF;
+$blackColor: #000000;
+$numColor: #eaeaea;
+$borderColor: #c4c4c4;
+$hoverColor: #b7a9d3;
+
+
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  background: $boxColor;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.calculator {
+  border: 1px solid $blackColor;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: $pageColor;
+}
+
+.calculator-screen {
+  width: 100%;
+  font-size: 5rem;
+  height: 80px;
+  border: none;
+  background-color: $blackColor;
+  color: $whiteColor;
+  text-align: right;
+  padding-right: 20px;
+  padding-left: 10px;
+}
+
+button {
+  height: 60px;
+  background-color: $boxColor;
+  border-radius: 3px;
+  border: 1px solid $funcColor;
+  background-color: transparent;
+  font-size: 2rem;
+  color: $blackColor;
+}
+
+button:hover {
+  background-color: $hoverColor;
+}
+
+.operator {
+  color: $blackColor;
+}
+
+.all-clear {
+  background-color: $funcColor;
+  border-color: $funcColor;
+  color: $whiteColor;
+}
+
+.all-clear:hover {
+  background-color: $boxColor;
+}
+
+.equal-sign {
+  background-color: $calcColor;
+  border-color: $calcColor;
+  color: $whiteColor;
+  height: 100%;
+  grid-area: 2 / 4 / 6 / 5;
+}
+
+.equal-sign:hover {
+  background-color: $boxColor;
+}
+
+.calculator-keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+  color: $blackColor;
+  background-color: $whiteColor;
+}
+
+p {
+  color: $blackColor;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 2rem;
+  justify-content: center;
+  display: flex;
+  font-size: 2rem;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(var(--rotate), #7350db, #38119a 43%, #000001);
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+  opacity: 90%;
+}
